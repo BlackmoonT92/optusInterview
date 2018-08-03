@@ -10,4 +10,5 @@
   <dimen name="material_margin_small">8dp</dimen>
   <dimen name="material_margin_medium">16dp</dimen>
   <dimen name="material_margin_large">32dp</dimen>
+  <dimen name="button_width">96dp</dimen>
 </resources>

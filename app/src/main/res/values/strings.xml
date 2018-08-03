@@ -9,6 +9,11 @@
   <string name="btnGreen">Green</string>
   <string name="scenario1">Scenario 1</string>
   <string name="scenario2">Scenario 2</string>
-  <string name="loading">loading</string>
-
+  <string name="loading">Fetching data from server....</string>
+  <string name="btnNavigate">Navigate</string>
+  <string name="noDataMessage">No Data available</string>
+  <string name="mode_transport">Mode of Transport:</string>
+  <string name="mode_transport_car">Car - %1s</string>
+  <string name="mode_transport_train">Train - %1s</string>
+  <string name="navigation_uri">google.navigation:q=%1$s,%2$s</string>
 </resources>

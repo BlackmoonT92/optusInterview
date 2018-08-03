@@ -16,7 +16,7 @@ public class Scenario2Presenter implements Scenario2Contact.Scenario2Presenter {
 
   private Scenario2View mView;
 
-  Activity activity;
+  private Activity activity;
 
   @Inject PlaceRepository mPlaceRepository;
 

@@ -17,4 +17,5 @@ public interface IPlaceDataSource {
   }
 
   void getPlaces(@NonNull LoadPlacesCallback callback);
+
 }

@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 
 android {
@@ -137,4 +138,10 @@ android {
     compile "com.github.Raizlabs.DBFlow:dbflow:$rootProject.dbflowVersion"
     compile "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:$rootProject.dbflowVersion"
   }
+}
+repositories {
+  mavenCentral()
+}
+dependencies {
+  compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

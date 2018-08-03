@@ -1,14 +1,21 @@
 package tam.com.interviewoptus.screen.scenario2;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Spinner;
+import android.widget.TextView;
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
 import tam.com.interviewoptus.R;
-import tam.com.interviewoptus.app.App;
 import tam.com.interviewoptus.app.base.BaseActivity;
 import tam.com.interviewoptus.data.source.objects.Place;
 import tam.com.interviewoptus.screen.scenario2.Scenario2Contact.Scenario2View;
@@ -22,6 +29,18 @@ public class Scenario2Activity extends BaseActivity implements Scenario2View {
 
   Scenario2Contact.Scenario2Presenter mPresenter;
 
+  @BindView(R.id.spinnerPlaces) Spinner mSpinner;
+
+  private SpinPlaceAdapter mSpinnerAdapter;
+
+  @BindView(R.id.tvStatus) TextView tvStatus;
+
+  @BindView(R.id.layoutInfo) View layoutInfo;
+
+  @BindView(R.id.tvModeCar) TextView tvModeCar;
+
+  @BindView(R.id.tvModeTrain) TextView tvModeTrain;
+
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -34,24 +53,70 @@ public class Scenario2Activity extends BaseActivity implements Scenario2View {
   public void setPresenter(Scenario2Contact.Scenario2Presenter presenter) {
     mPresenter = checkNotNull(presenter);
     mPresenter.loadPlaceList();
+    initViews();
+  }
+
+  private void initViews() {
+    mSpinnerAdapter =
+        new SpinPlaceAdapter(this, android.R.layout.simple_spinner_item, new ArrayList<Place>());
+    mSpinner.setAdapter(mSpinnerAdapter);
+    mSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+      @Override
+      public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Place place = mSpinnerAdapter.getItem(position);
+        if (place.getFromCentralByCar() != null) {
+          tvModeCar.setVisibility(View.VISIBLE);
+          tvModeCar.setText(getString(R.string.mode_transport_car, place.getFromCentralByCar()));
+        } else {
+          tvModeCar.setVisibility(View.GONE);
+        }
+        if (place.getFromCentralByTrain() != null) {
+          tvModeTrain.setVisibility(View.VISIBLE);
+          tvModeTrain.setText(
+              getString(R.string.mode_transport_train, place.getFromCentralByTrain()));
+        } else {
+          tvModeTrain.setVisibility(View.GONE);
+        }
+      }
+
+      @Override
+      public void onNothingSelected(AdapterView<?> parent) {
+
+      }
+    });
+  }
+
+  @OnClick(R.id.btnNavigate)
+  public void onNavigateButtonClicked() {
+    Place place = mSpinnerAdapter.getItem(mSpinner.getSelectedItemPosition());
+    Uri gmmIntentUri = Uri.parse(
+        getString(R.string.navigation_uri, String.valueOf(place.getLatitude()),
+            String.valueOf(place.getLongtitude())));
+    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+    mapIntent.setPackage("com.google.android.apps.maps");
+    startActivity(mapIntent);
   }
 
   @Override
   public void onLoadingPlaces() {
-    Toast.makeText(this, getString(R.string.loading), Toast.LENGTH_SHORT).show();
+    tvStatus.setVisibility(View.VISIBLE);
+    layoutInfo.setVisibility(View.GONE);
+    tvStatus.setText(getString(R.string.loading));
   }
 
   @Override
   public void onLoadingPlacesSuccess(List<Place> placeList) {
     Log.d("Places", (placeList != null ? placeList.size() : 0) + " Loading success!");
-    for (int i = 0; i < placeList.size(); i++) {
-      Log.d("Places" + i, placeList.get(i).toString());
-    }
+    tvStatus.setVisibility(View.GONE);
+    layoutInfo.setVisibility(View.VISIBLE);
+    mSpinnerAdapter.updatePlaces(placeList);
   }
 
   @Override
   public void onPlacesEmpty() {
-
+    layoutInfo.setVisibility(View.GONE);
+    tvStatus.setVisibility(View.VISIBLE);
+    tvStatus.setText(getString(R.string.noDataMessage));
   }
 }
 
