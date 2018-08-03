@@ -131,6 +131,7 @@ android {
 
     //viewpager indicator
     compile "com.github.ronaldsmartin:Material-ViewPagerIndicator:$rootProject.viewpagerIndicatorVersion"
+    compile 'net.yanzm:mth:1.0.4'
 
     //DB Flow
     annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:$rootProject.dbflowVersion"

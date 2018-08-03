@@ -5,7 +5,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Spinner;
@@ -16,7 +18,7 @@ import butterknife.OnClick;
 import java.util.ArrayList;
 import java.util.List;
 import tam.com.interviewoptus.R;
-import tam.com.interviewoptus.app.base.BaseActivity;
+import tam.com.interviewoptus.app.base.BaseFragment;
 import tam.com.interviewoptus.data.source.objects.Place;
 import tam.com.interviewoptus.screen.scenario2.Scenario2Contact.Scenario2View;
 
@@ -25,7 +27,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Created by tamphan on 3/8/18.
  */
-public class Scenario2Activity extends BaseActivity implements Scenario2View {
+public class Scenario2Fragment extends BaseFragment implements Scenario2View {
 
   Scenario2Contact.Scenario2Presenter mPresenter;
 
@@ -41,12 +43,23 @@ public class Scenario2Activity extends BaseActivity implements Scenario2View {
 
   @BindView(R.id.tvModeTrain) TextView tvModeTrain;
 
+  public static Scenario2Fragment newInstance() {
+    return new Scenario2Fragment();
+  }
+
+  @Nullable
   @Override
-  protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_scenario2);
-    ButterKnife.bind(this);
-    new Scenario2Presenter(this, this);
+  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+      @Nullable Bundle savedInstanceState) {
+    View view = inflater.inflate(R.layout.fragment_scenario2, container, false);
+    ButterKnife.bind(this, view);
+    return view;
+  }
+
+  @Override
+  public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    new Scenario2Presenter(this, getActivity());
   }
 
   @Override
@@ -57,8 +70,8 @@ public class Scenario2Activity extends BaseActivity implements Scenario2View {
   }
 
   private void initViews() {
-    mSpinnerAdapter =
-        new SpinPlaceAdapter(this, android.R.layout.simple_spinner_item, new ArrayList<Place>());
+    mSpinnerAdapter = new SpinPlaceAdapter(getActivity(), android.R.layout.simple_spinner_item,
+        new ArrayList<Place>());
     mSpinner.setAdapter(mSpinnerAdapter);
     mSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
       @Override

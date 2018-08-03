@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/horizontal_task1"
-    tools:context=".screen.scenario1.Scenario1Activity"
     >
   <LinearLayout
       android:layout_width="fill_parent"
@@ -13,56 +12,56 @@
       >
 
     <TextView
+        android:id="@+id/tvItem1"
         android:layout_width="@dimen/scen1_horizontal_item_width"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Item 1"
         android:layout_margin="@dimen/material_margin_medium"
         style="@style/AppTheme.TextView"
-        android:onClick="onItemTask1Clicked"
         />
 
     <TextView
+        android:id="@+id/tvItem2"
         android:layout_width="@dimen/scen1_horizontal_item_width"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Item 2"
         android:layout_margin="@dimen/material_margin_medium"
         style="@style/AppTheme.TextView"
-        android:onClick="onItemTask1Clicked"
         />
 
 
     <TextView
+        android:id="@+id/tvItem3"
         android:layout_width="@dimen/scen1_horizontal_item_width"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Item 3"
         android:layout_margin="@dimen/material_margin_medium"
         style="@style/AppTheme.TextView"
-        android:onClick="onItemTask1Clicked"
         />
 
 
     <TextView
+        android:id="@+id/tvItem4"
         android:layout_width="@dimen/scen1_horizontal_item_width"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Item 4"
         android:layout_margin="@dimen/material_margin_medium"
         style="@style/AppTheme.TextView"
-        android:onClick="onItemTask1Clicked"
         />
 
 
     <TextView
+        android:id="@+id/tvItem5"
         android:layout_width="@dimen/scen1_horizontal_item_width"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Item 5"
         android:layout_margin="@dimen/material_margin_medium"
         style="@style/AppTheme.TextView"
-        android:onClick="onItemTask1Clicked"
         />
 
   </LinearLayout>

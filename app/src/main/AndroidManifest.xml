@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tam.com.interviewoptus"
     >
+
   <uses-permission android:name="android.permission.INTERNET"/>
 
 
@@ -14,7 +15,10 @@
       android:theme="@style/AppTheme"
       android:name=".app.App"
       >
-    <activity android:name=".screen.home.MainActivity">
+    <activity
+        android:name=".screen.home.MainActivity"
+        android:configChanges="orientation|screenSize"
+        >
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
@@ -22,16 +26,6 @@
       </intent-filter>
     </activity>
 
-    <activity
-        android:name=".screen.scenario1.Scenario1Activity"
-        android:configChanges="orientation|screenSize"
-        android:label="@string/scenario1"
-        />
-    <activity
-        android:name=".screen.scenario2.Scenario2Activity"
-        android:configChanges="orientation|screenSize"
-        android:label="@string/scenario2"
-        ></activity>
   </application>
 
 </manifest>

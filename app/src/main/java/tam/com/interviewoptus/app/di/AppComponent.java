@@ -1,9 +1,8 @@
 package tam.com.interviewoptus.app.di;
 
-import android.app.Activity;
 import dagger.Component;
 import tam.com.interviewoptus.data.source.remote.HttpApiService;
-import tam.com.interviewoptus.screen.scenario1.Scenario1Activity;
+import tam.com.interviewoptus.screen.scenario1.Scenario1Fragment;
 import tam.com.interviewoptus.screen.scenario2.Scenario2Presenter;
 
 /**
@@ -17,5 +16,5 @@ public interface AppComponent {
 
   void inject(Scenario2Presenter scenario2Presenter);
 
-  void inject(Scenario1Activity scenario1Activity);
+  void inject(Scenario1Fragment scenario1Fragment);
 }
