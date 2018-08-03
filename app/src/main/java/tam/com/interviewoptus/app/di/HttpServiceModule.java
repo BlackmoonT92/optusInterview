@@ -7,7 +7,9 @@ import dagger.Provides;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import tam.com.interviewoptus.data.source.objects.Place;
 import tam.com.interviewoptus.data.source.remote.HttpApiService;
+import tam.com.interviewoptus.data.source.remote.deserializer.PlaceDeserializer;
 
 /**
  * Created by tamphan on 03/8/18.
@@ -26,7 +28,7 @@ public class HttpServiceModule {
   public Gson gson() {
     GsonBuilder gsonBuilder = new GsonBuilder();
     //add custom json converter here
-    //gsonBuilder.registerTypeAdapter(DateTime.class, new DateTimeConverter());
+    gsonBuilder.registerTypeAdapter(Place.class, new PlaceDeserializer());
     return gsonBuilder.create();
   }
 

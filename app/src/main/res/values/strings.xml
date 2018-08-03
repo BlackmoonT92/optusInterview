@@ -9,5 +9,6 @@
   <string name="btnGreen">Green</string>
   <string name="scenario1">Scenario 1</string>
   <string name="scenario2">Scenario 2</string>
+  <string name="loading">loading</string>
 
 </resources>
