@@ -53,4 +53,5 @@ ext {
     gsonJodatimeVerion = '1.2.0'
     dbflowVersion = "4.0.5"
     robolectricVersion = "3.0"
+    viewpagerIndicatorVersion = "1.0.4"
 }

@@ -128,6 +128,9 @@ android {
     implementation "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
 
+    //viewpager indicator
+    compile "com.github.ronaldsmartin:Material-ViewPagerIndicator:$rootProject.viewpagerIndicatorVersion"
+
     //DB Flow
     annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:$rootProject.dbflowVersion"
     compile "com.github.Raizlabs.DBFlow:dbflow-core:$rootProject.dbflowVersion"

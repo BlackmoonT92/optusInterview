@@ -4,9 +4,11 @@
   <color name="colorPrimaryDark">#005005</color>
   <color name="colorAccent">#19b76d</color>
 
-  <!--list contact item-->
+  <!--list item-->
   <color name="white">#FFFFFF</color>
   <color name="primary_text">#212121</color>
   <color name="secondary_text">#727272</color>
+
+  <color name="chrome_grey">#F2F2F2</color>
 
 </resources>

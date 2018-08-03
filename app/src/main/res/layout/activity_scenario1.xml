@@ -9,15 +9,13 @@
   <include
       layout="@layout/scen1_task1_horizontal"
       android:layout_width="wrap_content"
-      android:layout_height="@dimen/scen1_horizontal_layout"
-      android:layout_weight="2"
+      android:layout_height="wrap_content"
       />
-  <FrameLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_weight="2"
-      >
 
-  </FrameLayout>
+  <include
+      layout="@layout/scen1_task2_viewpager"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      />
 
 </LinearLayout>
