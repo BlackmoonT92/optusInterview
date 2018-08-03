@@ -20,8 +20,16 @@
       </intent-filter>
     </activity>
 
-    <activity android:name=".screen.scenario1.Scenario1Activity"></activity>
-    <activity android:name=".screen.scenario2.Scenario2Activity"></activity>
+    <activity
+        android:name=".screen.scenario1.Scenario1Activity"
+        android:configChanges="orientation|screenSize"
+        android:label="@string/scenario1"
+        />
+    <activity
+        android:name=".screen.scenario2.Scenario2Activity"
+        android:configChanges="orientation|screenSize"
+        android:label="@string/scenario2"
+        ></activity>
   </application>
 
 </manifest>

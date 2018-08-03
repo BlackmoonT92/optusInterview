@@ -2,4 +2,12 @@
   <string name="app_name">InterviewOptus</string>
   <string name="btnScenario1">Scenario 1</string>
   <string name="btnScenario2">Scenario 2</string>
+
+  <string name="itemTask1Message">Clicked on %1s</string>
+  <string name="btnRed">Red</string>
+  <string name="btnBlue">Blue</string>
+  <string name="btnGreen">Green</string>
+  <string name="scenario1">Scenario 1</string>
+  <string name="scenario2">Scenario 2</string>
+
 </resources>

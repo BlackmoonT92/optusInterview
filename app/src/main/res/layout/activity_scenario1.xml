@@ -1,21 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     >
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      >
 
+    <include
+        layout="@layout/scen1_task1_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 
-  <include
-      layout="@layout/scen1_task1_horizontal"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      />
+    <include
+        layout="@layout/scen1_task2_viewpager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <RelativeLayout
+        android:layout_marginTop="@dimen/material_margin_small"
+        android:background="@drawable/border"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/material_margin_small"
+        >
+      <TextView
+          android:id="@+id/tv1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:text="TextView1"
+          style="@style/AppTheme.TextView"
+          android:layout_alignParentLeft="true"
+          />
+      <TextView
+          android:id="@+id/tv2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:text="TextView2"
+          style="@style/AppTheme.TextView"
+          android:layout_below="@+id/tv1"
+          android:layout_centerHorizontal="true"
+          />
+      <TextView
+          android:id="@+id/tv3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:text="TextView3"
+          style="@style/AppTheme.TextView"
+          android:layout_below="@+id/tv2"
+          android:layout_alignParentRight="true"
+          />
 
-  <include
-      layout="@layout/scen1_task2_viewpager"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      />
+    </RelativeLayout>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tvItemName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/material_margin_small"
+        android:gravity="center"
+        android:text="None of item has been clicked yet"
+        style="@style/AppTheme.TextView"
+        android:layout_alignParentLeft="true"
+        />
+
+    <LinearLayout
+        android:id="@+id/layoutTask5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+      <Button
+          android:id="@+id/btnRed"
+          android:text="@string/btnRed"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:background="@color/red"
+          android:textColor="@android:color/white"
+          android:layout_margin="@dimen/material_margin_small"
+          style="@style/AppTheme.Button"
+          />
+      <Button
+          android:id="@+id/btnBlue"
+          android:text="@string/btnBlue"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:background="@color/blue"
+          android:layout_margin="@dimen/material_margin_small"
+          style="@style/AppTheme.Button"
+          />
+      <Button
+          android:id="@+id/btnGreen"
+          android:text="@string/btnGreen"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:background="@color/green"
+          android:layout_margin="@dimen/material_margin_small"
+          style="@style/AppTheme.Button"
+          />
+    </LinearLayout>
+  </LinearLayout>
+</ScrollView>
