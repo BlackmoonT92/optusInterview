@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">InterviewOptus</string>
+  <string name="btnScenario1">Scenario 1</string>
+  <string name="btnScenario2">Scenario 2</string>
+</resources>
