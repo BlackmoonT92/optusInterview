@@ -118,6 +118,8 @@ public class Scenario1Fragment extends BaseFragment {
   }
 
   private void updateTask4Name(String name) {
+    Toast.makeText(getActivity(), name, Toast.LENGTH_SHORT)
+        .show();
     tvItemTask1Name.setText(getString(R.string.itemTask1Message, name));
   }
 }
