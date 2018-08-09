@@ -6,3 +6,4 @@ Following is description:
 	+ Retrofit - Retrofit turns HTTP API into a Java interface.
 	+ Butterknife - Field and method binding for Android views.
 	+ Mockito & Espresso - testing.
+my linkedin https://www.linkedin.com/in/tam-phan-81306696/
